@@ -1,0 +1,14 @@
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\bin\Debug\Assignment2.exe.config
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\bin\Debug\Assignment2.exe
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\bin\Debug\Assignment2.pdb
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\obj\Debug\Assignment2.csprojAssemblyReference.cache
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\obj\Debug\Assignment2.csproj.CoreCompileInputs.cache
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\obj\Debug\Assignment2.exe
+c:\users\aliasagar\source\repos\Assignment2\Assignment2\obj\Debug\Assignment2.pdb
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\bin\Debug\Assignment2.exe.config
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\bin\Debug\Assignment2.exe
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\bin\Debug\Assignment2.pdb
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\obj\Debug\Assignment2.csprojAssemblyReference.cache
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\obj\Debug\Assignment2.csproj.CoreCompileInputs.cache
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\obj\Debug\Assignment2.exe
+C:\Users\aliasagar\Desktop\C#_Assignments\Assignment2\Assignment2\obj\Debug\Assignment2.pdb
