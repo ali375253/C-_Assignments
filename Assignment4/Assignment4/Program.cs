@@ -34,10 +34,9 @@ namespace Assignment4
             Console.WriteLine();
 
             Console.WriteLine("List of words which contains the length of character as 7 : ");
-            for(int i=0;i < Dictionary.Count; i++)
+            foreach (var word in Dictionary.Where(w => w.Length >= 7))
             {
-                if(Dictionary[i].Length >= 7)
-                    Console.WriteLine(Dictionary[i]);
+                Console.WriteLine(word);
             }
             Console.WriteLine();
 
