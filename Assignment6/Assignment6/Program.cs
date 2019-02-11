@@ -53,23 +53,26 @@ namespace Assignment6
         public void Task1()
         {
             var EmployeeList = from employee in employeeList
-                                 join salary in salaryList
-                                 on employee.EmployeeID equals salary.EmployeeID
-                                 select new
-                                 {
-                                     employee.EmployeeFirstName,
-                                     salary.Amount
-                                 } into employee
-                                 group employee by employee.EmployeeFirstName into employee
-                                 select new
-                                 {
-                                     Name = employee.Key,
-                                     TotalSalary = employee.Sum(s => s.Amount)
+                               join salary in salaryList
+                               on employee.EmployeeID equals salary.EmployeeID
+                               select new
+                               {
+                                   employee.EmployeeFirstName,
+                                   employee.EmployeeLastName,
+                                   salary.Amount
+                               } into employee
+                               group employee by employee.EmployeeFirstName into employee
+                               select new
+                               {
+                                   Name = employee.Key,
+                                   LastName = employee.Select(e => e.EmployeeLastName).ToArray(),
+                                   TotalSalary = employee.Sum(s => s.Amount)
                                  } into employee
                                  orderby employee.TotalSalary ascending
                                  select new
                                  {
                                      employee.Name,
+                                     employee.LastName,
                                      employee.TotalSalary
                                  };
             
@@ -77,7 +80,7 @@ namespace Assignment6
             Console.WriteLine();
             foreach (var employee in EmployeeList)
             {
-                Console.WriteLine(employee.Name + " | " +employee.TotalSalary);
+                Console.WriteLine(employee.Name + " " + employee.LastName[0] + " | " +employee.TotalSalary);
             }
         }
         public void Task2()
@@ -114,12 +117,14 @@ namespace Assignment6
                                select new
                                {
                                    employee.EmployeeFirstName,
+                                   employee.EmployeeLastName,
                                    salary.Amount
                                } into employee
                                group employee by employee.EmployeeFirstName into employee
                                select new
                                {
                                    Name = employee.Key,
+                                   LastName = employee.Select(e => e.EmployeeLastName).ToArray(),
                                    MeanSalary = employee.Average(s => s.Amount)
                                };
 
@@ -128,7 +133,7 @@ namespace Assignment6
             Console.WriteLine();
             foreach (var employee in EmployeeList)
             {
-                Console.WriteLine($"{employee.Name} | {employee.MeanSalary:F2}");
+                Console.WriteLine($"{employee.Name} {employee.LastName[0]} | {employee.MeanSalary:F2}");
             }
 
         }
