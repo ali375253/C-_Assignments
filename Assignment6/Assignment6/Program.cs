@@ -59,26 +59,23 @@ namespace Assignment6
                                  {
                                      employee.EmployeeFirstName,
                                      salary.Amount
+                                 } into employee
+                                 group employee by employee.EmployeeFirstName into employee
+                                 select new
+                                 {
+                                     Name = employee.Key,
+                                     TotalSalary = employee.Sum(s => s.Amount)
+                                 } into employee
+                                 orderby employee.TotalSalary ascending
+                                 select new
+                                 {
+                                     employee.Name,
+                                     employee.TotalSalary
                                  };
-            var EmployeeGroupByName = from employee in EmployeeList
-                                      group employee by employee.EmployeeFirstName;
             
-            var EmployeeTotalSalary = from employee in EmployeeGroupByName
-                                      select new
-                                      {
-                                        Name=employee.Key,
-                                        TotalSalary = employee.Sum(s => s.Amount)
-                                      };
-            var EmployeeOrderBySalary = from employee in EmployeeTotalSalary
-                                        orderby employee.TotalSalary ascending
-                                        select new
-                                        {
-                                            employee.Name,
-                                            employee.TotalSalary
-                                        };
             Console.WriteLine("Total Salary of all the employee with their corresponding names in ascending order of their salary : ");
             Console.WriteLine();
-            foreach (var employee in EmployeeOrderBySalary)
+            foreach (var employee in EmployeeList)
             {
                 Console.WriteLine(employee.Name + " | " +employee.TotalSalary);
             }
@@ -111,28 +108,25 @@ namespace Assignment6
         public void Task3()
         {
             var EmployeeList = from employee in employeeList
-                                 join salary in salaryList
-                                 on employee.EmployeeID equals salary.EmployeeID
-                                 where employee.Age >= 30
-                                 select new
-                                 {
-                                     employee.EmployeeFirstName,
-                                     salary.Amount
-                                 };
-            var EmployeeGroupByName = from employee in EmployeeList
-                                      group employee by employee.EmployeeFirstName;
-
-            var EmployeeAverageSalary = from employee in EmployeeGroupByName
-                                      select new
-                                      {
-                                          Name = employee.Key,
-                                          MeanSalary = employee.Average(s => s.Amount)
-                                      };
+                               join salary in salaryList
+                               on employee.EmployeeID equals salary.EmployeeID
+                               where employee.Age >= 30
+                               select new
+                               {
+                                   employee.EmployeeFirstName,
+                                   salary.Amount
+                               } into employee
+                               group employee by employee.EmployeeFirstName into employee
+                               select new
+                               {
+                                   Name = employee.Key,
+                                   MeanSalary = employee.Average(s => s.Amount)
+                               };
 
             Console.WriteLine("********************************************************");
             Console.WriteLine("Mean of Monthly, Performance, Bonus salary of employees whose age is greater than 30 : ");
             Console.WriteLine();
-            foreach (var employee in EmployeeAverageSalary)
+            foreach (var employee in EmployeeList)
             {
                 Console.WriteLine($"{employee.Name} | {employee.MeanSalary:F2}");
             }
